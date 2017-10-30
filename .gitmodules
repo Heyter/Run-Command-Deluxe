@@ -1,0 +1,6 @@
+[submodule "PB-Utils"]
+	path = PB-Utils
+	url = https://github.com/aziascreations/PB-Utils.git
+[submodule "PB-Gadgets"]
+	path = PB-Gadgets
+	url = https://github.com/aziascreations/PB-Gadgets.git
