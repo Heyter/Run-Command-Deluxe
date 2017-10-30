@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://www.purebasic.com/namespace" version="1.0" creator="PureBasic 5.60 (Windows - x86)">
+  <section name="config">
+    <options closefiles="1" openmode="0" name="Run Command Deluxe"/>
+  </section>
+  <section name="data">
+    <explorer view="Examples\" pattern="0"/>
+    <log show="1"/>
+    <lastopen date="2017-10-29 18:35" user="Herwin" host="DESKTOP-UAKS81M"/>
+  </section>
+  <section name="files">
+    <file name="Main.pb">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" panelstate=""/>
+      <fingerprint md5="43f3c91bcab895628ee37a5e066a623d"/>
+    </file>
+    <file name="PB-Gadgets\ButtonIconGadget.pb">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" panelstate=""/>
+      <fingerprint md5="44f19bd826b2500c6e25075a09f4564f"/>
+    </file>
+    <file name="WindowMain.pbf">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" panelstate=""/>
+      <fingerprint md5="4b8e325be4100427c4dd334c51f7ffdc"/>
+    </file>
+    <file name="IconGrabber.pb">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="0" panelstate=""/>
+      <fingerprint md5="f0c6afe18926b2ac7ecc4e89288af935"/>
+    </file>
+    <file name="executables_windows.txt">
+      <config load="0" scan="0" panel="1" warn="1" lastopen="1" panelstate=""/>
+      <fingerprint md5="e6347a941f1dc0383a10290d30dab062"/>
+    </file>
+    <file name="executables_sysinternals.txt">
+      <config load="0" scan="0" panel="1" warn="1" lastopen="0" panelstate=""/>
+      <fingerprint md5="d41d8cd98f00b204e9800998ecf8427e"/>
+    </file>
+    <file name="PB-Utils\Strings.pb">
+      <config load="0" scan="1" panel="1" warn="1" lastopen="1" panelstate=""/>
+      <fingerprint md5="c0cc93534a1ef4173e57f82dc89ef413"/>
+    </file>
+  </section>
+  <section name="targets">
+    <target name="x86" enabled="1" default="0">
+      <inputfile value="Main.pb"/>
+      <outputfile value=".\bin\Run-Command-Deluxe_x86.exe"/>
+      <compiler version="PureBasic 5.60 (Windows - x86)"/>
+      <executable value="bin\Run-Command-Deluxe_x86.exe"/>
+      <options xpskin="1" debug="1"/>
+      <temporaryexe value="source"/>
+      <icon enable="1">.\icon.ico</icon>
+      <compilecount enable="1" value="1"/>
+      <buildcount enable="1" value="1"/>
+    </target>
+    <target name="x64" enabled="1" default="1">
+      <inputfile value="Main.pb"/>
+      <outputfile value=".\bin\Run-Command-Deluxe_x64.exe"/>
+      <compiler version="PureBasic 5.60 (Windows - x64)"/>
+      <executable value="bin\Run-Command-Deluxe_x64.exe"/>
+      <options xpskin="1" debug="1"/>
+      <temporaryexe value="source"/>
+      <icon enable="1">.\icon.ico</icon>
+      <compilecount enable="1" value="34"/>
+      <buildcount enable="1" value="1"/>
+    </target>
+  </section>
+</project>

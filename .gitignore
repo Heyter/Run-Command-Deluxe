@@ -3,5 +3,3 @@ sysinternals/
 bin/*
 WindowMainLayout.pbf
 update-submodules.bat
-IconExtractor.*
-./*.cfg

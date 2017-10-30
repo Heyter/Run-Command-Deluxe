@@ -1,0 +1,88 @@
+﻿
+Global Combo_0, Image_MainIcon, Frame_Deparator
+Global Text_Open, Text_Info
+Global Img_Window_Main_0
+
+Global ButtonRun, ButtonRunAdmin, ButtonBrowse, ButtonImage_0
+
+Enumeration FormWindow
+	#Window_Main
+EndEnumeration
+
+Enumeration FormMenu
+	#MenuItem_Browse
+	#MenuItem_BrowseAdmin
+	#MenuItem_Exit
+	#MenuItem_Options
+	#MenuItem_About
+EndEnumeration
+
+Procedure OpenWindow_Main(x = 0, y = 0, width = 530, height = 260)
+	OpenWindow(#Window_Main, x, y, width, height, "", #PB_Window_SystemMenu | #PB_Window_ScreenCentered)
+	CreateImageMenu(0, WindowID(#Window_Main))
+	MenuTitle("Files")
+	MenuItem(#MenuItem_Browse, "Browse...", ImageFolder)
+	MenuItem(#MenuItem_BrowseAdmin, "Browse...", ImageAdminShell)
+	MenuBar()
+	MenuItem(#MenuItem_Exit, "Exit")
+	MenuTitle("Misc")
+	MenuItem(#MenuItem_Options, "Options", ImageSettings)
+	MenuBar()
+	MenuItem(#MenuItem_About, "About" + Chr(9) + "F1", ImageInfo)
+	
+	Text_Open = TextGadget(#PB_Any, 0, 45+2, 55, 20, "Open :", #PB_Text_Right)
+	Text_Info = TextGadget(#PB_Any, 65, 10, 400, 30, "Type the name of a program, folder, document, and Windows will open it for you.")
+	
+	ButtonBrowse = ButtonGadget(#PB_Any, width-90, 70+3, 80, 25, "# Browse...")
+	ButtonRunAdmin = ButtonGadget(#PB_Any, width-240, 70+3, 140, 25, "# Run as administrator")
+	ButtonRun = ButtonGadget(#PB_Any, width-310, 70+3, 60, 25, "# Run")
+	
+	Combo_0 = ComboBoxGadget(#PB_Any, 60, 45, width-60-10, 20, #PB_ComboBox_Editable)
+	Image_MainIcon = ImageGadget(#PB_Any, 20, 10-2, 32, 32, ImageID(ImageMainIcon))
+	
+	Frame_Deparator = FrameGadget(#PB_Any, 0, 100+3, width, 5, "")
+	
+	;ButtonImage_0 = ButtonImageGadget(#PB_Any, 10, 85, 24, 24, ImageExecRun)
+	
+	LoadExecutablesDefinitions(#Window_Main)
+EndProcedure
+
+Procedure Window_Main_Events(event)
+	Select event
+		Case #PB_Event_CloseWindow
+			ProcedureReturn #False
+			
+		Case #PB_Event_Menu
+			Select EventMenu()
+				Case #MenuItem_Browse
+				Case #MenuItem_BrowseAdmin
+				Case #MenuItem_Exit
+				Case #MenuItem_Options
+				Case #MenuItem_About
+			EndSelect
+			
+		Case #PB_Event_Gadget
+			EventGadgetID = EventGadget()
+			HasFinished.b = #False
+			ForEach QuickLaunchAppIDs()
+				If QuickLaunchAppIDs() = EventGadgetID
+					ClickQuickLaunchButton(event, EventGadgetID)
+					HasFinished.b = #True
+				EndIf
+			Next
+			
+			If Not HasFinished
+				Select EventGadgetID
+						
+				EndSelect
+			EndIf
+	EndSelect
+	ProcedureReturn #True
+EndProcedure
+
+
+; IDE Options = PureBasic 5.60 (Windows - x86)
+; CursorPosition = 30
+; Folding = -
+; EnableXP
+; CompileSourceDirectory
